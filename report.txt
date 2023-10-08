@@ -1,0 +1,6 @@
+If we initialize 'unintialized_value' that will mitigate any issues with it being uninitialized.
+
+Within the for loop, we need to free the pointer that is generically pointing to the heap, and then free the list of generic void (double)? pointers on the heap.
+This must be donee within the for loop so it is in scope.
+
+Lastly, we need to free still_reachable, and then free possibly_lost (while explicitly adjusting for the change in position '+= 4').
